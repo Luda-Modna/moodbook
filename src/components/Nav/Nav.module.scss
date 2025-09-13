@@ -1,0 +1,23 @@
+.nav {
+  width: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+  border-radius: 10px;
+  justify-content: center;
+
+  .icon {
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 5px;
+
+    &:hover {
+      color: #ffcc00;
+    }
+  }
+}
