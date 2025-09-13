@@ -4,14 +4,30 @@ import {
   togglePositiveMood,
   toggleNegativeMood,
 } from './../../slices/moodSlice';
+import { fetchBooks } from './../../slices/bookSlice';
 import styles from './MoodPanel.module.scss';
 
 function MoodPanel () {
-  const { positiveMoods, negativeMoods } = useSelector(state => state.moodsList);
+  const { positiveMoods, negativeMoods } = useSelector(
+    state => state.moodsList
+  );
   const dispatch = useDispatch();
 
   const positiveOptions = ['happy', 'adventurous', 'romantic'];
   const negativeOptions = ['sad', 'angry', 'anxious'];
+
+  const handlePositiveChange = mood => {
+    dispatch(togglePositiveMood(mood));
+  };
+
+  const handleNegativeChange = mood => {
+    dispatch(toggleNegativeMood(mood));
+  };
+
+  const handleFindBooks = () => {
+    const moods = [...positiveMoods, ...negativeMoods];
+    dispatch(fetchBooks(moods));
+  };
 
   return (
     <div className={styles.moodPanel}>
@@ -23,7 +39,7 @@ function MoodPanel () {
             <input
               type='checkbox'
               checked={positiveMoods.includes(mood)}
-              onChange={() => dispatch(togglePositiveMood(mood))}
+              onChange={() => handlePositiveChange(mood)}
             />
             {mood}
           </label>
@@ -36,14 +52,14 @@ function MoodPanel () {
             <input
               type='checkbox'
               checked={negativeMoods.includes(mood)}
-              onChange={() => dispatch(toggleNegativeMood(mood))}
+              onChange={() => handleNegativeChange(mood)}
             />
             {mood}
           </label>
         ))}
       </div>
 
-      <button>Знайти книгу</button>
+      <button onClick={handleFindBooks}>Знайти книгу</button>
     </div>
   );
 }
