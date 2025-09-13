@@ -1,0 +1,49 @@
+.bookSection {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  .header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .bookContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 500px;
+    }
+  }
+}
